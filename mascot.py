@@ -6951,13 +6951,18 @@ class Mascot:
                 c.create_oval(ex - 6, y0 - 11, ex + 6, y0 + 1,
                               fill="#4a4a4a", outline="")
         elif deco == "cat":
+            # 색은 그 캐릭터의 테마색에서 뽑는다. 분홍으로 박아 두면 붉은
+            # 카드(멸종)에서 혼자 튄다. 도로롱은 원래 값과 거의 같게 나온다.
+            base = self.card["fill"]
+            outer, line = self._tint(base, 0.30), self._shade(base, 0.15)
+            inner = self._tint(base, 0.14)
             for sign, ex in ((-1, x0 + 26), (1, x1 - 26)):
                 c.create_polygon(ex - 13 * sign, y0 + 5, ex + 3 * sign, y0 - 17,
                                  ex + 13 * sign, y0 + 3,
-                                 fill="#f5bdd2", outline="#d687ab", width=2)
+                                 fill=outer, outline=line, width=2)
                 c.create_polygon(ex - 6 * sign, y0 + 2, ex + 3 * sign, y0 - 10,
                                  ex + 8 * sign, y0 + 1,
-                                 fill="#eba0c0", outline="")
+                                 fill=inner, outline="")
         elif deco == "dog":
             # 접힌 검은 강아지 귀 — 카드 위 모서리에서 바깥으로 늘어짐
             for sign, ex in ((-1, x0 + 18), (1, x1 - 18)):

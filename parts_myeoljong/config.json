@@ -118,7 +118,8 @@
   "fill": "#ba2028",
   "panel": "#fffbfb",
   "soft": "#f7ecec",
-  "line": "#eedcdd"
+  "line": "#eedcdd",
+  "deco": "cat"
  },
  "titles": [
   [
