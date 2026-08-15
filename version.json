@@ -1,7 +1,7 @@
 {
- "version": 1786835150,
+ "version": 1786837104,
  "files": {
-  "mascot.py": "05ab15e2503d393d6981134286139f6c9cb2d733cc9f833118bc672000997468",
+  "mascot.py": "d41e2f26686a3096a1cb9c600e02dede82ade40dbf8622e6a5ad4faf5b142dd2",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
@@ -11,6 +11,7 @@
   "parts_myeoljong/desk.png": "d4ba581fd721166d554b24da1bb8c4207fbe3c878969d9256cd938423db07660",
   "parts_myeoljong/eyes_closed.png": "7bc3f828a991145d8ec3c0be162c80c854ec23d613ff90a86f0147e37d7769ae",
   "parts_myeoljong/hair.png": "8de52ffd787f54a7b06f2be5695aec8653698d02ff70474ba552d8500db2be7a",
+  "parts_myeoljong/hand.png": "14fcba700a6266576b2d5a5e8d6aa308f53ff0d00008e93ee51526d08eec067f",
   "parts_myeoljong/hat.png": "4bd1da80b760cff3694c7b21350e8dce6a177026846dcd737d796ad7560f277f",
   "parts_myeoljong/head.png": "2f017164815cae374db90f2d3e6edd1bdc6e6fe5e990d50f906b034eabff5a3b",
   "parts_myeoljong/lashes.png": "cc77cda5631ee205a5f8b8973822f9b9dab14ffc8c670bf8333c13d35b648527",
