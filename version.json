@@ -1,14 +1,14 @@
 {
- "version": 1786908063,
+ "version": 1786908710,
  "files": {
-  "mascot.py": "ba38fa0865e0f7e661b20cb38ab18dc8b93cfd53fc474ed0cc356d0c82bcba9e",
+  "mascot.py": "246ff34aab8b308d0606a2ae918f8044839d78a7308961bcb33b517275b5fcb9",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
   "parts_myeoljong/arm_right_typing.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/body_open.png": "838ee3717c44af1499e04eda2209f4c1959d68adf870249ed6efba373d91038b",
   "parts_myeoljong/config.json": "9da0fc6744ad9c35e5136c145a698898ce7b38749d4c23b9731260110ed1b2e6",
-  "parts_myeoljong/crown.png": "3fa85115a5e95f41cec066e8be2dba4dddd268d4d697ea7043a14254cb50d123",
+  "parts_myeoljong/crown.png": "b1b7426a0222ac294a782cb06db6c9c4aba4e660591dd1761dc9e4da050175fc",
   "parts_myeoljong/desk.png": "d4ba581fd721166d554b24da1bb8c4207fbe3c878969d9256cd938423db07660",
   "parts_myeoljong/eyes_closed.png": "7bc3f828a991145d8ec3c0be162c80c854ec23d613ff90a86f0147e37d7769ae",
   "parts_myeoljong/hair.png": "8de52ffd787f54a7b06f2be5695aec8653698d02ff70474ba552d8500db2be7a",
