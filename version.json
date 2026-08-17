@@ -1,7 +1,7 @@
 {
- "version": 1786942375,
+ "version": 1786944000,
  "files": {
-  "mascot.py": "fa0b97ad904e7cd6aeb4f7ab57042ee730c8503c8db4f52d50e508bee3514ad0",
+  "mascot.py": "1e05d1a60d4bcdf4df56a1435403f15e2d68484ff972135ef40d938317d8c279",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
@@ -344,6 +344,9 @@
   "stickers/__init__.py": "d77e3dc92cb353dced8d192c140643c6458bc3901facdf2e0a0d0830fa4244b7",
   "youtube_player.py": "33dd7fc8cf781b8b8a37c1a60a54b7506ebce5b44399d28fc0841d143d19e70c"
  },
- "notes": [],
- "silent": true
+ "notes": [
+  "노래 추천 말풍선에 우클릭하면 좋아요(하트)를 보낼 수 있어요",
+  "받은 좋아요는 말풍선 오른쪽 위에 하트 숫자로 표시돼요",
+  "노래 제목이 길면 마우스를 올렸을 때 옆으로 흐르며 전체가 보여요"
+ ]
 }
