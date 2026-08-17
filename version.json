@@ -1,7 +1,7 @@
 {
- "version": 1786960715,
+ "version": 1786961706,
  "files": {
-  "mascot.py": "347ee98b47114e50791765d6a585d1248761d4c12713c6b1c20c63669d183fe4",
+  "mascot.py": "64339ffcf8075294eac342881e58a631fa61f2b53a6f66427c59ae4e5c0f3aea",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
@@ -40,6 +40,11 @@
   "parts_myeoljong/seat_pen.png": "054d46bba77659ead98d377d710a703a130d7174fb0f91235610666cf5fab2a5",
   "parts_myeoljong/seat_pen2.png": "0570f6a0d9405a55226f7655a2d0931e72b18e85592f38cea82fadcb55275df5",
   "parts_myeoljong/seat_type.png": "900c0a61caad788cb3725901cf90e714f9449c1bd0b3aef957b2dcf7637fdba9",
+  "parts_myeoljong/sky_dawn.png": "588c23959f0f6af3c8a5f75fb7eb14ed64d4e8ed567b04bddcf9c2592726c2c1",
+  "parts_myeoljong/sky_day.png": "8c836f9d19bfde652386227be759bd3cea9ead31c54f35c46eb639a74502445e",
+  "parts_myeoljong/sky_dusk.png": "357d5a58d58536cd07f06f291be1ea7be6866846a7b83c985a0bcd9af833f321",
+  "parts_myeoljong/sky_morning.png": "08a2cacc410e1cabe61815bc6601ec4a56265ca792b6f37d247ef597ef89099b",
+  "parts_myeoljong/sky_night.png": "f762dc17a481c603d8bc1d76f594ace20551e2aab850bfda9cd631f57731ad84",
   "parts_myeoljong/smile.png": "157f717d84d022f1082be475215e2637faaa089e1610b16b677912640120cd19",
   "parts_myeoljong/fonts/Pretendard-Bold.otf": "2e91915fab54df71cc9598ebf608b2bdb54c6fe3c066ac61dff0bc44fca71cc7",
   "parts_myeoljong/fonts/Pretendard-Regular.otf": "3ffbacde6ab8411f1d2db54bb9b1f0b3ee2a738932033722cf0388c06aed1c93",
