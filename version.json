@@ -1,13 +1,13 @@
 {
- "version": 1787400304,
+ "version": 1787409365,
  "files": {
-  "mascot.py": "839f6ab1e7ac4d9575cf14a0fead93f222778f8d195ea7abbf8603b2becd2fa1",
+  "mascot.py": "fdf8d94007e16d50cdc2628c79d4c3f8fea9004fb480c8cb4154c335c7173610",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
   "parts_myeoljong/arm_right_typing.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/body_open.png": "838ee3717c44af1499e04eda2209f4c1959d68adf870249ed6efba373d91038b",
-  "parts_myeoljong/config.json": "40b20b4c02eacbb03ae41cff38a761795124c124c4a529eb7eeb8fb6da315a4b",
+  "parts_myeoljong/config.json": "e2c1d72fc695221e86f8821e4a933cac0429ba4f8a279b4fc5ba27da7a6f3a41",
   "parts_myeoljong/crown.png": "b1b7426a0222ac294a782cb06db6c9c4aba4e660591dd1761dc9e4da050175fc",
   "parts_myeoljong/desk.png": "d4ba581fd721166d554b24da1bb8c4207fbe3c878969d9256cd938423db07660",
   "parts_myeoljong/eyes_closed.png": "7bc3f828a991145d8ec3c0be162c80c854ec23d613ff90a86f0147e37d7769ae",
@@ -479,6 +479,9 @@
   "youtube_player.py": "8fd216056f4f61075a8646a791389b05ad0082c40864d84b16773c2302c74f2d"
  },
  "notes": [
-  "**악마 꼬리와 천사 날개가 부드럽게 움직입니다.** 초당 2.7장·3.8장만 바뀌어서 이 프로그램에서 가장 뚝뚝 끊기던 것이었어요. 이제 7.1장·10장으로 늘었습니다 (늘어나는 메모리는 1MB 안쪽이에요)"
+  "**캐릭터 가장자리가 매끈해졌어요.** 몸 테두리가 도트처럼 계단지던 것을 없앴습니다 — 그림의 원래 가장자리가 그대로 나옵니다 (맥에서는 이 방법을 못 써서 지금 그대로예요)",
+  "타이머 카드·말풍선·동그란 단추의 모서리도 부드러워졌어요",
+  "말풍선 바깥에 흰 테처럼 보이던 그림자를 없애고 테두리를 조금 굵게 했습니다. 꼬리도 몸통과 자연스럽게 이어지고 끝이 뾰족해졌어요",
+  "이상하면 환경설정 → 표시 → '부드러운 가장자리'에서 끌 수 있어요"
  ]
 }
