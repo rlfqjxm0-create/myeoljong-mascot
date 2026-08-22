@@ -9348,6 +9348,38 @@ class Mascot:
         except Exception:
             pass
 
+    def _yt_advice(self, fatal):
+        """재생기가 못 뜬 이유 → 사람이 할 수 있는 일. (짧게, 길게, 아는가)
+
+        멸종의 기록에서 실제로 받은 문장이 판정의 근거다 —
+            RuntimeError: Failed to resolve Python.Runtime.Loader.Initialize
+            from ...\\_internal\\pythonnet\\runtime\\Python.Runtime.dll
+        인터넷에서 받은 zip 에 윈도우가 붙인 차단 표식 때문에 .NET 이
+        그 어셈블리를 안 읽어 준다 (지뢰 61). 게다가 그 폴더가
+        원드라이브 안이라 파일이 실제로 안 내려와 있을 수도 있다.
+
+        짐작으로 늘리지 말 것 — **기록에서 본 문장에만** 길을 단다.
+        모르는 이유면 예전처럼 파일을 보라고만 한다.
+        """
+        s = str(fatal or "").lower()
+        if not s:
+            return ("음악을 켤 수 없어요 — 자세한 건 .yt_err.txt",
+                    "음악을 켤 수 없어요.", False)
+        if any(k in s for k in ("python.runtime", "pythonnet", "clr_loader",
+                                "assembly", "winerror 126")):
+            long = ("음악 프로그램이 윈도우에 막혔어요. 받은 zip 을 "
+                    "우클릭 → 속성 → '차단 해제'를 체크하고 새 폴더에 "
+                    "다시 풀어 주세요.")
+            if "onedrive" in s:
+                long += " 원드라이브 밖 폴더에 두는 게 좋아요."
+            return ("zip 을 '차단 해제'하고 다시 풀어 주세요", long, True)
+        if any(k in s for k in ("webview2", "edge", "runtime not found")):
+            return ("WebView2 런타임을 설치해 주세요",
+                    "음악을 켜려면 마이크로소프트 WebView2 런타임이 "
+                    "필요해요. 무료로 받을 수 있어요.", True)
+        return ("음악을 켤 수 없어요 — 자세한 건 .yt_err.txt",
+                "음악을 켤 수 없어요.", False)
+
     def _yt_bar(self):
         """카드 위 줄(음악·환경음)이 요구하는 여백. 아무것도 없으면 0.
 
@@ -9475,6 +9507,7 @@ class Mascot:
         self._yt_born = time.time()
         self._yt = {}
         self._yt_err = 0
+        self._yt_fatal = ""          # 지난번 이유가 남아 딴소리하지 않게
         self._yt_idle = 0.0
         q = self._yt_q = []
         threading.Thread(target=self._yt_reader, args=(self._yt_proc, q),
@@ -9616,12 +9649,16 @@ class Mascot:
                 # 한 번도 준비되지 못하고 죽었으면 사람에게 알린다.
                 # (WebView2 런타임이 없는 컴퓨터 등)
                 if self._yt_want and not self._yt.get("ready"):
-                    self._say("음악을 켤 수 없어요.", 4.0)
+                    # 이유를 알면 **무엇을 하면 되는지** 말해 준다.
+                    # '음악을 켤 수 없어요' 만으로는 사람이 할 수 있는
+                    # 일이 없다 (멸종은 그 말만 보고 스물세 번 눌렀다).
+                    short, long, known = self._yt_advice(
+                        getattr(self, "_yt_fatal", ""))
+                    self._say(long, 10.0 if known else 4.0)
                     # **홈 창에도 띄운다.** 플레이리스트는 홈에서 누르는데
                     # 캐릭터 말풍선만 뜨면 못 본다 — '눌러도 아무 일이
                     # 없다'로 보인다 (멸종 제보).
-                    self._room_toast = ("음악을 켤 수 없어요 — 자세한 건 "
-                                        ".yt_err.txt", time.time())
+                    self._room_toast = (short, time.time())
                     self._safe("yt_dead_log", self._yt_log,
                                "재생기가 준비 못 하고 죽음"
                                + (" — " + self._yt_fatal
