@@ -5671,6 +5671,7 @@ class Mascot:
         self._yt = {}                # 마지막 상태 (재생 중인지·제목)
         self._yt_want = False        # 사람이 재생을 원하는가
         self._yt_err = 0             # 마지막으로 알린 오류 (같은 말 반복 방지)
+        self._yt_fatal = ""          # 재생기가 못 뜬 이유 (자식이 보내 준다)
         self._yt_idle = 0.0          # 멈춘 채로 지낸 시각
         self._yt_btn = None          # 버튼 자리 (x, y, 반지름)
         self._amb_btn = None         # 환경음 알약 자리 (x0,y0,x1,y1)
@@ -9622,13 +9623,24 @@ class Mascot:
                     self._room_toast = ("음악을 켤 수 없어요 — 자세한 건 "
                                         ".yt_err.txt", time.time())
                     self._safe("yt_dead_log", self._yt_log,
-                               "재생기가 준비 못 하고 죽음")
+                               "재생기가 준비 못 하고 죽음"
+                               + (" — " + self._yt_fatal
+                                  if getattr(self, "_yt_fatal", "") else ""))
                 self._yt_forget()
                 return
             try:
                 s = json.loads(line)
             except ValueError:
                 continue
+            if s.get("fatal"):
+                # **자식이 왜 못 떴는지 보내 온 것.** 예전에는 이 값을
+                # 아무도 안 읽어서 .yt_err.txt 에 '준비 못 하고 죽음'
+                # 한 줄만 남고 이유가 없었다 — 멸종·젖소 도로롱의 기록
+                # 둘 다 자식 자국이 0줄이었다. 답은 오고 있었는데 받는
+                # 쪽에서 버리고 있던 것이다 (지뢰 51 과 같은 이야기).
+                self._yt_fatal = str(s.get("fatal"))[:300]
+                self._safe("yt_fatal", self._yt_log,
+                           "재생기가 못 떴어요: " + self._yt_fatal)
             was = self._yt.get("title", "")
             self._yt = s
             if s.get("signed") and not self.us.get("yt_signed"):

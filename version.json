@@ -1,7 +1,7 @@
 {
- "version": 1787429527,
+ "version": 1787430312,
  "files": {
-  "mascot.py": "f6ca06488290a5b56ded35d11c1e406e57f83ed23f43322ba2a03452f8c427f4",
+  "mascot.py": "c5180c788f80c35583b075c8c8122b4c9edc54cc9bf209ca360eb59b4818e732",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
@@ -476,7 +476,7 @@
   "stickers/sticker_icon.ico": "e1ced0f5c5cd1b963ebfad7d839b5b1d78959ac0fc37bba5859a40c0afda4221",
   "stickers/textmaker.py": "f75a9e4e9cac8ac120ee2ac3bec6546572e1cb908f3bd6ca6605913b6f18f471",
   "stickers/__init__.py": "d77e3dc92cb353dced8d192c140643c6458bc3901facdf2e0a0d0830fa4244b7",
-  "youtube_player.py": "8fd216056f4f61075a8646a791389b05ad0082c40864d84b16773c2302c74f2d"
+  "youtube_player.py": "958da4bd526d867ec8250db02da4729ceb168664c04419091fe6ebf040122f80"
  },
  "notes": [],
  "silent": true
