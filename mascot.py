@@ -9745,11 +9745,30 @@ class Mascot:
                     # 플레이리스트 중 막힌 곡(임베드 금지 등)은 건너뛴다.
                     # 전부 막혀 있으면 한 바퀴 돌고 멈춘다 (무한 넘김 방지).
                     self._pl_skip += 1
-                    if self._pl_skip >= max(1, len(self._room_pl_songs())):
+                    songs = self._room_pl_songs()
+                    t = (songs[self._pl_i]["t"]
+                         if 0 <= self._pl_i < len(songs) else "")
+                    # **어느 곡이 왜 막혔는지 남긴다.** 예전에는 번호도
+                    # 곡도 안 남겨서, '누굴 눌러도 딴 사람 노래가 나온다'
+                    # 는 제보가 와도 임베드 금지인지 다른 오류인지 가를
+                    # 길이 없었다 (지뢰 131 과 같은 이야기).
+                    self._safe("pl_err_log", self._yt_log,
+                               "곡을 못 틀었어요 (오류 %d) %s · %s"
+                               % (err, str(t)[:60],
+                                  str(getattr(self, "_pl_url", ""))[:120]))
+                    # **홈 창에도 띄운다.** 플레이리스트는 홈에서 누르는데
+                    # 캐릭터 말풍선만 뜨면 못 본다 — 곡이 저절로 넘어간
+                    # 것처럼만 보인다 (젖소 도로롱·멸종 제보).
+                    why = ("막아 둔 영상" if err in (101, 150)
+                           else self.YT_ERRS.get(err, "오류 %d" % err))
+                    if self._pl_skip >= max(1, len(songs)):
                         self._pl_stop()
                         self._say("틀 수 있는 노래가 없네요.", 4.0)
+                        self._room_toast = ("틀 수 있는 노래가 없어요 (%s)"
+                                            % why, time.time())
                     else:
                         self._say("이 노래는 막혀 있어요 — 다음 곡!", 3.0)
+                        self._room_toast = ("건너뜀 — %s" % why, time.time())
                         self._safe("pl_next", self._pl_play, self._pl_i + 1)
                 else:
                     self._yt_want = False
