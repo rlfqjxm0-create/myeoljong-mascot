@@ -5672,6 +5672,7 @@ class Mascot:
         self._yt_want = False        # 사람이 재생을 원하는가
         self._yt_err = 0             # 마지막으로 알린 오류 (같은 말 반복 방지)
         self._yt_fatal = ""          # 재생기가 못 뜬 이유 (자식이 보내 준다)
+        self._yt_unblocked = False   # 차단 표식 풀기를 이미 해 봤는가
         self._yt_idle = 0.0          # 멈춘 채로 지낸 시각
         self._yt_btn = None          # 버튼 자리 (x, y, 반지름)
         self._amb_btn = None         # 환경음 알약 자리 (x0,y0,x1,y1)
@@ -9348,8 +9349,45 @@ class Mascot:
         except Exception:
             pass
 
+    def _yt_unblock(self, root=None):
+        """우리 프로그램 폴더의 '차단 표식'을 지운다. 지운 개수를 돌려준다.
+
+        인터넷에서 받은 zip 을 풀면 윈도우가 파일마다
+        `Zone.Identifier` 라는 딸린 흐름을 붙인다. 그러면 .NET 이
+        `Python.Runtime.dll` 을 안 읽어 주고 음악 재생기가 그 자리에서
+        죽는다 (지뢰 61·131). 멸종과 젖소 도로롱이 같은 오류였다 —
+        한 사람은 원드라이브, 한 사람은 다운로드 폴더라 공통점은
+        '받은 zip 을 그냥 풀었다' 하나뿐이었다.
+
+        사람에게 '우클릭 → 속성 → 차단 해제' 를 시키는 대신 우리가
+        지운다. **범위를 좁게 잡는 것이 핵심이다** —
+          · 굳힌 배포본에서만 (소스로 도는 내 것은 표식이 없다)
+          · 우리 exe 가 있는 폴더 **안**만
+          · 프로그램 부품(.dll/.exe/.pyd)만
+        표식만 지우고 파일은 건드리지 않는다.
+        """
+        if root is None:
+            if not (IS_WIN and getattr(sys, "frozen", False)):
+                return 0
+            root = os.path.dirname(os.path.abspath(sys.executable))
+        n = 0
+        try:
+            for dirpath, _dirs, files in os.walk(root):
+                for f in files:
+                    if not f.lower().endswith((".dll", ".exe", ".pyd")):
+                        continue
+                    try:
+                        os.remove(os.path.join(dirpath, f)
+                                  + ":Zone.Identifier")
+                        n += 1
+                    except OSError:
+                        pass          # 표식이 없거나 권한이 없으면 넘어간다
+        except Exception:
+            pass
+        return n
+
     def _yt_advice(self, fatal):
-        """재생기가 못 뜬 이유 → 사람이 할 수 있는 일. (짧게, 길게, 아는가)
+        """재생기가 못 뜬 이유 → 사람이 할 수 있는 일. (짧게, 길게, 갈래)
 
         멸종의 기록에서 실제로 받은 문장이 판정의 근거다 —
             RuntimeError: Failed to resolve Python.Runtime.Loader.Initialize
@@ -9364,7 +9402,7 @@ class Mascot:
         s = str(fatal or "").lower()
         if not s:
             return ("음악을 켤 수 없어요 — 자세한 건 .yt_err.txt",
-                    "음악을 켤 수 없어요.", False)
+                    "음악을 켤 수 없어요.", "")
         if any(k in s for k in ("python.runtime", "pythonnet", "clr_loader",
                                 "assembly", "winerror 126")):
             long = ("음악 프로그램이 윈도우에 막혔어요. 받은 zip 을 "
@@ -9372,13 +9410,13 @@ class Mascot:
                     "다시 풀어 주세요.")
             if "onedrive" in s:
                 long += " 원드라이브 밖 폴더에 두는 게 좋아요."
-            return ("zip 을 '차단 해제'하고 다시 풀어 주세요", long, True)
+            return ("zip 을 '차단 해제'하고 다시 풀어 주세요", long, "block")
         if any(k in s for k in ("webview2", "edge", "runtime not found")):
             return ("WebView2 런타임을 설치해 주세요",
                     "음악을 켜려면 마이크로소프트 WebView2 런타임이 "
-                    "필요해요. 무료로 받을 수 있어요.", True)
+                    "필요해요. 무료로 받을 수 있어요.", "webview2")
         return ("음악을 켤 수 없어요 — 자세한 건 .yt_err.txt",
-                "음악을 켤 수 없어요.", False)
+                "음악을 켤 수 없어요.", "")
 
     def _yt_bar(self):
         """카드 위 줄(음악·환경음)이 요구하는 여백. 아무것도 없으면 0.
@@ -9652,9 +9690,24 @@ class Mascot:
                     # 이유를 알면 **무엇을 하면 되는지** 말해 준다.
                     # '음악을 켤 수 없어요' 만으로는 사람이 할 수 있는
                     # 일이 없다 (멸종은 그 말만 보고 스물세 번 눌렀다).
-                    short, long, known = self._yt_advice(
+                    short, long, kind = self._yt_advice(
                         getattr(self, "_yt_fatal", ""))
-                    self._say(long, 10.0 if known else 4.0)
+                    # 막힌 것이면 사람에게 시키지 말고 우리가 풀어 본다.
+                    # 한 번만 — 안 풀리면 안내로 물러난다.
+                    if kind == "block" and not self._yt_unblocked:
+                        self._yt_unblocked = True
+                        n = 0
+                        try:
+                            n = self._yt_unblock()
+                        except Exception:
+                            self._log_error("yt_unblock")
+                        self._safe("yt_unblock_log", self._yt_log,
+                                   "차단 표식 지움: %d개" % n)
+                        if n:
+                            short = "막힌 것을 풀었어요 — 다시 눌러 주세요"
+                            long = ("음악 프로그램이 윈도우에 막혀 있어서 "
+                                    "풀어 봤어요. 한 번 더 눌러 주세요.")
+                    self._say(long, 10.0 if kind else 4.0)
                     # **홈 창에도 띄운다.** 플레이리스트는 홈에서 누르는데
                     # 캐릭터 말풍선만 뜨면 못 본다 — '눌러도 아무 일이
                     # 없다'로 보인다 (멸종 제보).
