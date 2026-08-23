@@ -1,13 +1,18 @@
 {
- "version": 1787502078,
+ "version": 1787510886,
  "files": {
-  "mascot.py": "fbdf8e3b21e2e769672acc47f67dbba3222fd2cafeac680900afe954c577a708",
+  "mascot.py": "1ebc3f40211c242fa74bdde44d1cff3226dd642e0e392e90acee45a059fb12aa",
   "parts_myeoljong/arm_key.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/arm_pen.png": "32f194eb9be168cc36352d8730b116778043a76934e90805346d4748d4e4c059",
   "parts_myeoljong/arm_right.png": "62dda14578cbc962c7b5242dcf519e795cb8f0f9e703d9b217f663d066e60d78",
   "parts_myeoljong/arm_right_typing.png": "e8727004c6a0d3d49367906822bd14dcf4c6e1ce920d0c5352e7ab96e6864c8c",
   "parts_myeoljong/body_open.png": "838ee3717c44af1499e04eda2209f4c1959d68adf870249ed6efba373d91038b",
-  "parts_myeoljong/config.json": "e2c1d72fc695221e86f8821e4a933cac0429ba4f8a279b4fc5ba27da7a6f3a41",
+  "parts_myeoljong/chip_food.png": "420182c25bd0673a57be7e9532da4c6fff94fd768744833b96852ef1e77ed2c1",
+  "parts_myeoljong/chip_game.png": "bc60280f7829b72654347ea79cab9b45df03939b2334f7f1361e1c9bbb6f284b",
+  "parts_myeoljong/chip_kernel.png": "bb58ea688ae34da877aaa8f3daaa68e669e00997be2b28d78c4408c6e66c26e7",
+  "parts_myeoljong/chip_meta.json": "23214acfd87a7ae8ee65a7edf781386a54f29283c16fae815f47c8fc8f55413f",
+  "parts_myeoljong/chip_movie.png": "43bfa1493af45a8adc05b455acda466b56cad4394229cd8a706ae5cde09ed642",
+  "parts_myeoljong/config.json": "0a40b2590378d45f94fe2babaee2f42dc2e6a461749ee367321bcbeea96b9e25",
   "parts_myeoljong/crown.png": "b1b7426a0222ac294a782cb06db6c9c4aba4e660591dd1761dc9e4da050175fc",
   "parts_myeoljong/desk.png": "d4ba581fd721166d554b24da1bb8c4207fbe3c878969d9256cd938423db07660",
   "parts_myeoljong/eyes_closed.png": "7bc3f828a991145d8ec3c0be162c80c854ec23d613ff90a86f0147e37d7769ae",
@@ -478,6 +483,8 @@
   "stickers/__init__.py": "d77e3dc92cb353dced8d192c140643c6458bc3901facdf2e0a0d0830fa4244b7",
   "youtube_player.py": "958da4bd526d867ec8250db02da4729ceb168664c04419091fe6ebf040122f80"
  },
- "notes": [],
- "silent": true
+ "notes": [
+  "새 기능 '상태 칩' — 캐릭터 우클릭 → 상태 칩에서 지금 무엇을 하는 중인지 고를 수 있어요. 자리비움 · 게임 중 · 영화 감상 중 · 밥 먹는 중을 고르면 캐릭터가 그 행동을 하고, 홈의 내 칸에도 표시돼요. 원래대로 돌리려면 '온라인'을 고르면 돼요.",
+  "소품이 팔에 가려지지 않게 위로 올렸어요. 여러 겹으로 된 소품(불꽃 같은 것)도 안쪽 겹까지 제대로 나와요."
+ ]
 }
