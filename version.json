@@ -1,5 +1,5 @@
 {
- "version": 1787732055,
+ "version": 1787732555,
  "files": {
   "mascot.py": "8e674e9daee1a60d2c017869dbb913f51c16220ebd4cb1eba3b6a691b4c98d60",
   "parts_myeoljong/arm_key.png": "9d8f20f1dc179ed23f927a0af3077e385d18df8a5032dfc5ee8a476863fd512b",
@@ -13,8 +13,8 @@
   "parts_myeoljong/chip_meta.json": "19d1e6c8695852c7445dbb541df4050fb3d0ca7eb0fcbfb71f30cd96c3c757d2",
   "parts_myeoljong/chip_movie.png": "43bfa1493af45a8adc05b455acda466b56cad4394229cd8a706ae5cde09ed642",
   "parts_myeoljong/chip_spoon.png": "9c1f69af5de27a78fcff161bc8cacbe21aa3ce8cc5b8ea8294517ae23925f08f",
-  "parts_myeoljong/config.json": "1022f0a78cadad70ab452973e1be701c82f3e76e9a3e27f015a21b2d41a566d8",
-  "parts_myeoljong/config.json.bak": "1022f0a78cadad70ab452973e1be701c82f3e76e9a3e27f015a21b2d41a566d8",
+  "parts_myeoljong/config.json": "af4744a283e6dffae7de6f1b6ddb6857677a0b6d1eeb3a90451aa8cf215bec61",
+  "parts_myeoljong/config.json.bak": "af4744a283e6dffae7de6f1b6ddb6857677a0b6d1eeb3a90451aa8cf215bec61",
   "parts_myeoljong/crown.png": "b1b7426a0222ac294a782cb06db6c9c4aba4e660591dd1761dc9e4da050175fc",
   "parts_myeoljong/desk.png": "aaf051b6f761c4a7e9695a4cc5994f66bb5b150cf62ed04d1275f5cb0a37f842",
   "parts_myeoljong/eyes_closed.png": "04179af45b91adf311bbfdbe16dfe167f9a8cc57d90dee4e10d86d59cd9df98e",
@@ -73,10 +73,6 @@
   "parts_myeoljong/propx1_bit2.png": "81cf67eb121c60bfd7b52e0e270f480cb0aa0b3540a1f8a874194a96117c8f45",
   "parts_myeoljong/propx1_bit3.png": "fcdd5262fb6588571ecfa6100d732d5d0be55683b3ef890b9ce2941c553e243a",
   "parts_myeoljong/propx1_bit4.png": "c988c0f585189ede308b55455d3444ee83931afa8c7c12e1deb9af49a0a4c430",
-  "parts_myeoljong/propx2.png": "d6281e877f24a47caba34678d89b124b04c6b86ca774c2f487bbe34392dd1a49",
-  "parts_myeoljong/propx2_bit2.png": "3e79c0d59eb294a280590c01702130be6bcce34385f99625e54404ad11819ffa",
-  "parts_myeoljong/propx2_bit3.png": "07458a652891c07ddd1fe8a193eb1cdbcca438979aa9d601dddd29c8023b1192",
-  "parts_myeoljong/propx2_bit4.png": "fcec67dc8046fbd6b0f05ce04a9c670fec2ca39f2c78983820c7e29df10b733f",
   "parts_myeoljong/pupils.png": "ebec33990648e4e3e28572f60568b624b3f34d133737616e9ce49926e8cc7572",
   "parts_myeoljong/seat.png": "90ace5bfbcbd755c99f35b7a2d251e7ef268e6216402d1836ddf4cae2faaf09a",
   "parts_myeoljong/seat_idle.png": "7b6a33e3dbaea3b5b26b4abae4ef0e2f0070abdef21bf78cde6ee7ba782b5cea",
@@ -520,7 +516,7 @@
  "notes": [
   "새 소품 4종이 왔어요 — 잠자는 고양이, 김이 폴폴 나는 왕만두, 아기 쪽쪽이, 토끼 머리띠. '소품 새로고침'을 누르다 보면 만날 수 있어요.",
   "하독의 반려동물 고양이 비비도 있어요! 발과 꼬리를 살랑이는 비비를 클릭하거나 몸을 쓰다듬어 보세요.",
-  "개의 반려동물 고양이 덤보도 왔어요! 꼬리를 살랑이는 덤보를 클릭하면 야옹, 몸을 쓰다듬으면 고롱고롱 하며 눈을 감아요.",
+  "개의 반려동물 고양이 덤보도 왔어요! 머리 위에 앉은 덤보를 클릭하면 야옹, 몸을 쓰다듬으면 고롱고롱 하며 눈을 감아요.",
   "고양이 울음소리가 여러 가지로 늘었어요. 고롱고롱은 쓰다듬는 동안 계속 나고, 손을 멈추면 그쳐요.",
   "모두의 플레이리스트에서 퍼오기가 막혀 건너뛰던 곡도 이제 재생돼요. 유튜브 프리미엄을 쓰신다면 음악 메뉴에서 한 번 로그인해 두면 광고 없이 나와요."
  ]
